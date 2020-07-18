@@ -8,7 +8,7 @@ export const AddTransaction = () => {
   const { addTransaction } = useContext(GlobalContext);
   const onSubmit = (e) => {
     e.preventDefault();
-    if (description.trim() === '' || amount.trim() === '' || amount == 0) {
+    if (description.trim() === '' || amount.trim() === '' || amount === '0') {
       return;
     }
     const newTransaction = {
