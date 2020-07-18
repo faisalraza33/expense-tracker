@@ -4,10 +4,13 @@ import { GlobalContext } from '../context/GlobalState';
 
 export const AddTransaction = () => {
   const [description, setDescription] = useState('');
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState('');
   const { addTransaction } = useContext(GlobalContext);
   const onSubmit = (e) => {
     e.preventDefault();
+    if (description.trim() === '' || amount.trim() === '' || amount == 0) {
+      return;
+    }
     const newTransaction = {
       id: new Date().getTime(),
       description,
